@@ -49,8 +49,8 @@ Clone the repository and install dependencies.
 
 ```powershell
 # Clone
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+git clone https://github.com//mishraashutosh25/my-portfolio.git
+cd my-portfolio
 
 # Install dependencies
 npm install
