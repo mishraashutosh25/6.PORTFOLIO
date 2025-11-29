@@ -103,11 +103,18 @@ Replace the above rows with your real projects. For each project, include a shor
 
 ## 🖼️ Screenshots
 
-### 🏠 Hero Section  
-![Hero Screenshot](public/screenshots/hero.png)
+Place screenshots in `public/` or `public/screenshots/`. Use the exact filenames below or update the paths if you move files.
 
+### 🏠 Hero Section  
+
+<a href="public/hero.png">
+	<img src="public/hero.png" alt="Hero Screenshot" style="max-width:100%;height:auto;border-radius:8px;" />
+</a>
+
+Click the image to view the full-size screenshot. Using a relative path (`public/hero.png`) ensures GitHub renders the image correctly from this repository.
 
 ### 🧠 Skills Section  
+
 ![Skills Screenshot](public/screenshots/skills.png)
 ---
 
