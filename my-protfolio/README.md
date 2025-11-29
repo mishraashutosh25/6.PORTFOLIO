@@ -107,15 +107,19 @@ Place screenshots in `public/` or `public/screenshots/`. Use the exact filenames
 
 ### 🏠 Hero Section  
 
-<a href="public/hero.png">
-	<img src="public/hero.png" alt="Hero Screenshot" style="max-width:100%;height:auto;border-radius:8px;" />
-</a>
+### 🏠 Hero Section  
+
+<p align="center">
+	<img src="public/hero.png" alt="Hero Screenshot" style="width:900px;max-width:100%;height:auto;border-radius:8px;" />
+</p>
 
 Click the image to view the full-size screenshot. Using a relative path (`public/hero.png`) ensures GitHub renders the image correctly from this repository.
 
 ### 🧠 Skills Section  
 
-![Skills Screenshot](public/screenshots/skills.png)
+<p align="center">
+	<img src="public/skills.png" alt="Skills Screenshot" style="width:900px;max-width:100%;height:auto;border-radius:8px;" />
+</p>
 ---
 
 ## 🔗 Live Demo
@@ -142,9 +146,9 @@ Example HTML snippet (if needed):
 
 ## 📨 Contact
 
-- **Email:** yourname@example.com
-- **GitHub:** https://github.com/your-username
-- **LinkedIn:** https://www.linkedin.com/in/your-profile
+- **Email:** ashutoshmishra.dev25@gmail.com
+- **GitHub:** https://github.com/mishraashutosh25
+- **LinkedIn:**https://www.linkedin.com/in/mishraashutosh25/
 
 Feel free to open an issue or create a PR for suggestions or improvements.
 
