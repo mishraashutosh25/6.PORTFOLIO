@@ -148,7 +148,7 @@ Example HTML snippet (if needed):
 
 - **Email:** ashutoshmishra.dev25@gmail.com
 - **GitHub:** https://github.com/mishraashutosh25
-- **LinkedIn:**https://www.linkedin.com/in/mishraashutosh25/
+- **LinkedIn:**https://www.linkedin.com/in/ashutoshmishradev12/
 
 Feel free to open an issue or create a PR for suggestions or improvements.
 

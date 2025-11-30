@@ -8,7 +8,7 @@ import yash from "../assets/yash.png";
 
 const socials=[
   {Icon: FaXTwitter, link:"https://x.com/devma25"},
-  {Icon: FaLinkedin, link:"https://www.linkedin.com/in/mishraashutosh25/"},
+  {Icon: FaLinkedin, link:"https://www.linkedin.com/in/ashutoshmishradev12/"},
   {Icon: FaGithub, link:"https://github.com/mishraashutosh25"}
 ]
 
