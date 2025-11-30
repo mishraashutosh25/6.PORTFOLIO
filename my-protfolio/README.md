@@ -126,7 +126,7 @@ Click the image to view the full-size screenshot. Using a relative path (`public
 
 Visit the live site:
 
-🔗 https://your-username.vercel.app (replace with your deployed URL)
+🔗 https://ashutoshdevprotfolio.netlify.app/ (replace with your deployed URL)
 
 You can deploy quickly with Vercel or Netlify. Connect the repo, set build command to `npm run build` and publish directory to `dist`.
 
