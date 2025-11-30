@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
-import Profile from "../assets/Profile.png"; // Make sure exact name matches
+import profile from "../assets/profile.png"
 
 export default function About() {
   const stats = [
@@ -50,7 +50,7 @@ export default function About() {
             transition={{ type: "spring", stiffness: 200, damping: 40 }}
           >
             <img
-              src={Profile}
+              src={profile}
               alt="Profile"
               className="p-2 object-cover rounded-full w-full h-full"
             />
