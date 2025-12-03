@@ -8,7 +8,7 @@ export default function ParticlesBackground() {
     const ctx = canvas.getContext("2d");
 
     let particles = [];
-    const ParticlesCount = 50;
+    const ParticlesCount = 100;
     const colors = ["rgba(255,255,255,0.5)"];
 
     const SPEED = 0.9; 
