@@ -171,42 +171,38 @@ export default function Home() {
           </div>
         </div>
 
-        <div>
+        <div className="absolute right-0 bottom-0 top-auto md:top-1/2 md:-translate-y-1/2 z-0 w-full flex md:block justify-center md:justify-end">
+
           <motion.img
             src={yash}
             alt="Ashutosh Mishra"
-            className="absolute top-1/2 -translate-y-1/2 object-contain select-none pointer-events-none"
-            style={{
-              right: "-100px",
-              width: "min(48vw, 780px)",
-              maxHeight: "90vh"
-            }}
+            className="
+      object-contain select-none pointer-events-none
+      w-[75vw] sm:w-[60vw] md:w-[42vw] lg:w-[38vw]
+      max-h-[55vh] sm:max-h-[65vh] md:max-h-[80vh]
+      md:absolute md:right-[-30px]
+    "
             initial={{
               opacity: 0,
               y: 60,
               x: 100,
-              scale: 0.95,
-              rotate: 5
+              scale: 0.9,
             }}
             animate={{
               opacity: 1,
               y: 0,
               x: 0,
               scale: 1,
-              rotate: 0
             }}
             transition={{
               duration: 1.5,
               delay: 0.9,
-              ease: [0.22, 1, 0.36, 1] // Custom easing for smooth effect
-            }}
-            whileHover={{
-              scale: 1.05,
-              rotate: -2,
-              transition: { duration: 0.4 }
+              ease: [0.22, 1, 0.36, 1],
             }}
           />
+
         </div>
+
 
       </div>
     </section>

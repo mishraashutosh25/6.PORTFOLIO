@@ -1,7 +1,9 @@
+import ParticlesBackground from "../compnents/ParticlesBackground";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import Astra from "../assets/Astra.png";
+
 
 const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
@@ -21,8 +23,6 @@ export default function Contact() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    // allow only numbers in budget
     if (name === "budget" && value && !/^\d+$/.test(value)) return;
 
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -30,14 +30,13 @@ export default function Contact() {
   };
 
   const validateForm = () => {
-    const requiredFields = ["name", "email", "service", "idea"];
+    const required = ["name", "email", "service", "idea"];
     const newErrors = {};
 
-    requiredFields.forEach((f) => {
+    required.forEach((f) => {
       if (!formData[f].trim()) newErrors[f] = "Fill this field";
     });
 
-    // budget required only when NOT selecting Others
     if (formData.service !== "Others" && !formData.budget.trim()) {
       newErrors.budget = "Fill this field";
     }
@@ -56,24 +55,12 @@ export default function Contact() {
       await emailjs.send(
         SERVICE_ID,
         TEMPLATE_ID,
-        {
-          ...formData,
-          from_name: formData.name,
-          reply_to: formData.email,
-        },
+        { ...formData, from_name: formData.name, reply_to: formData.email },
         PUBLIC_KEY
       );
 
       setStatus("success");
-
-      // Reset form
-      setFormData({
-        name: "",
-        email: "",
-        service: "",
-        budget: "",
-        idea: "",
-      });
+      setFormData({ name: "", email: "", service: "", budget: "", idea: "" });
     } catch (err) {
       console.error("EmailJS Error:", err);
       setStatus("error");
@@ -83,9 +70,13 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="w-full min-h-screen relative bg-black overflow-hidden text-white py-20 px-6 md:px-20 flex flex-col md:flex-row items-center gap-10"
+      className="relative w-full min-h-screen bg-black overflow-hidden text-white py-20 px-6 md:px-20 flex flex-col md:flex-row items-center gap-10"
     >
-      {/* Contact Illustration */}
+      
+<ParticlesBackground />
+    
+
+      {/* Main Content */}
       <div className="w-full flex flex-col md:flex-row items-center gap-10 relative z-10">
         
         {/* IMAGE */}
@@ -156,7 +147,6 @@ export default function Contact() {
               <label className="mb-1">
                 Service Needed <span className="text-red-500">*</span>
               </label>
-
               <select
                 name="service"
                 value={formData.service}
@@ -178,7 +168,7 @@ export default function Contact() {
               {errors.service && <p className="text-red-500 text-sm mt-1">{errors.service}</p>}
             </div>
 
-            {/* Budget (only if NOT selecting Others) */}
+            {/* Budget */}
             {formData.service && formData.service !== "Others" && (
               <div className="flex flex-col">
                 <label className="mb-1">
@@ -219,7 +209,7 @@ export default function Contact() {
             {/* Status */}
             {status && (
               <p
-                className={`text-sm px-4 py-2 rounded-md mt-3 w-fit transition-all duration-300 animate-fadeIn
+                className={`text-sm px-4 py-2 rounded-md mt-3 w-fit transition-all duration-300
                 ${
                   status === "success"
                     ? "text-green-400 bg-green-400/10 border border-green-400/30"

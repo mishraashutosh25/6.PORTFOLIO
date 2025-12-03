@@ -8,7 +8,7 @@ export default function ParticlesBackground() {
     const ctx = canvas.getContext("2d");
 
     let particles = [];
-    const ParticlesCount = 120;
+    const ParticlesCount = 50;
     const colors = ["rgba(255,255,255,0.5)"];
 
     const SPEED = 0.9; 
@@ -80,7 +80,7 @@ export default function ParticlesBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
+      className="absolute  top-0 left-0 w-full h-full pointer-events-none z-0"
     ></canvas>
   );
 }
