@@ -1,26 +1,26 @@
 import React, { useMemo, useState, useEffect } from "react";
 import ParticlesBackground from "../compnents/ParticlesBackground";
 import { motion, scale } from "framer-motion";
-import { ArrowRight} from "lucide-react";
-import { FaGithub, FaLinkedin, FaXTwitter,FaEnvelope } from "react-icons/fa6";
+import { ArrowRight } from "lucide-react";
+import { FaGithub, FaLinkedin, FaXTwitter, FaEnvelope } from "react-icons/fa6";
 import yash from "../assets/yash.png";
 
 
-const socials=[
-  {Icon: FaXTwitter, link:"https://x.com/devma25"},
-  {Icon: FaLinkedin, link:"https://www.linkedin.com/in/ashutoshmishradev12/"},
-  {Icon: FaGithub, link:"https://github.com/mishraashutosh25"},
+const socials = [
+  { Icon: FaXTwitter, link: "https://x.com/devma25" },
+  { Icon: FaLinkedin, link: "https://www.linkedin.com/in/ashutoshmishradev12/" },
+  { Icon: FaGithub, link: "https://github.com/mishraashutosh25" },
   { Icon: FaEnvelope, link: "mailto:ashutoshmishra.dev25@gmail.com" },
 ]
 
 const glowVariants = {
-  initial: {scale:1, y: 0, filter: "drop-shadow(0 0 0px rgba(0,0,0,0))"},
+  initial: { scale: 1, y: 0, filter: "drop-shadow(0 0 0px rgba(0,0,0,0))" },
   hover: {
     scale: 1.2,
     y: -5,
     filter: "drop-shadow(0 0 8px rgba(13,88,204,0.9)) drop-shadow(0 0 8px rgba(16,185,129,0.8))",
   },
-  tap: {scale: 0.95, y: 0, transition: {duration: 0.08}},
+  tap: { scale: 0.95, y: 0, transition: { duration: 0.08 } },
 };
 
 export default function Home() {
@@ -121,8 +121,8 @@ export default function Home() {
               Let’s shape what comes next, together.
             </motion.p>
 
-            <motion.div className="mt-9 sm:px-12 flex flex-wrap items-center justify-center sm:justify-start gap-8" 
-            initial={{ opacity: 0, y: 25 }}
+            <motion.div className="mt-9 sm:px-12 flex flex-wrap items-center justify-center sm:justify-start gap-8"
+              initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.6 }}
             >
@@ -130,7 +130,7 @@ export default function Home() {
                 className="px-5 py-3 rounded-full font-medium text-lg text-white  bg-gradient-to-r from-pink-500 
                  to-blue-500 shadow-lg hover:scale-110 transition-all flex items-center gap-3">Explore my work
                 <motion.span
-                  
+
                   animate={{ x: [0, 6, 0] }}
                   transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
                 >
@@ -138,74 +138,75 @@ export default function Home() {
                 </motion.span>
               </a>
               <a href="/Resume.pdf"
-              download
-              className="px-8 py-3 rounded-full text-lg font-medium text-black bg-white  hover:bg-gray-300 shadow-lg hover:scale-105 transition-all"
+                download
+                className="px-8 py-3 rounded-full text-lg font-medium text-black bg-white  hover:bg-gray-300 shadow-lg hover:scale-105 transition-all"
               >My Resume</a>
             </motion.div>
 
-            <motion.div className="mt-8 sm:px-12 flex items-center gap-5 justify-center sm:justify-start"
-            initial={{ opacity: 0, y:20 }}
-              animate={{ opacity: 1, y:10 }}
+            <motion.div
+              className="mt-8 sm:px-12 flex items-center gap-5 justify-center sm:justify-start"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 10 }}
               transition={{ duration: 1, delay: 1 }}
             >
-              {socials.map(({Icon, label , link})=>(
+              {socials.map(({ Icon, label, link }) => (
                 <motion.a
-                  key={label}
+                  key={link}
                   href={link}
                   target="_blank"
-                  aria-label="label"
+                  aria-label={label}
                   rel="noopener noreferrer"
                   variants={glowVariants}
                   initial="initial"
                   whileHover="hover"
-                  className="text-gray-400 "
-                  >
-                    <div className="relative w-16 h-16 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center overflow-hidden group-hover:border-cyan-400/50 transition-all duration-300">
+                  className="text-gray-400"
+                >
+                  <div className="relative w-16 h-16 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center overflow-hidden group-hover:border-cyan-400/50 transition-all duration-300">
                     <Icon size={28} className="relative z-10 text-gray-400 group-hover:text-white transition-colors" />
                   </div>
                 </motion.a>
-                
               ))}
-               </motion.div>
+            </motion.div>
+
           </div>
         </div>
 
-<div>
-  <motion.img 
-    src={yash} 
-    alt="Ashutosh Mishra"
-    className="absolute top-1/2 -translate-y-1/2 object-contain select-none pointer-events-none"
-    style={{
-      right: "-100px",
-      width: "min(48vw, 780px)", 
-      maxHeight: "90vh"
-    }}
-    initial={{ 
-      opacity: 0, 
-      y: 60,
-      x: 100,
-      scale: 0.95,
-      rotate: 5
-    }}
-    animate={{ 
-      opacity: 1, 
-      y: 0,
-      x: 0,
-      scale: 1,
-      rotate: 0
-    }}
-    transition={{ 
-      duration: 1.5, 
-      delay: 0.9,
-      ease: [0.22, 1, 0.36, 1] // Custom easing for smooth effect
-    }}
-    whileHover={{
-      scale: 1.05,
-      rotate: -2,
-      transition: { duration: 0.4 }
-    }}
-  />
-</div>
+        <div>
+          <motion.img
+            src={yash}
+            alt="Ashutosh Mishra"
+            className="absolute top-1/2 -translate-y-1/2 object-contain select-none pointer-events-none"
+            style={{
+              right: "-100px",
+              width: "min(48vw, 780px)",
+              maxHeight: "90vh"
+            }}
+            initial={{
+              opacity: 0,
+              y: 60,
+              x: 100,
+              scale: 0.95,
+              rotate: 5
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              x: 0,
+              scale: 1,
+              rotate: 0
+            }}
+            transition={{
+              duration: 1.5,
+              delay: 0.9,
+              ease: [0.22, 1, 0.36, 1] // Custom easing for smooth effect
+            }}
+            whileHover={{
+              scale: 1.05,
+              rotate: -2,
+              transition: { duration: 0.4 }
+            }}
+          />
+        </div>
 
       </div>
     </section>
