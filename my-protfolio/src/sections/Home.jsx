@@ -2,14 +2,15 @@ import React, { useMemo, useState, useEffect } from "react";
 import ParticlesBackground from "../compnents/ParticlesBackground";
 import { motion, scale } from "framer-motion";
 import { ArrowRight} from "lucide-react";
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaXTwitter,FaEnvelope } from "react-icons/fa6";
 import yash from "../assets/yash.png";
 
 
 const socials=[
   {Icon: FaXTwitter, link:"https://x.com/devma25"},
   {Icon: FaLinkedin, link:"https://www.linkedin.com/in/ashutoshmishradev12/"},
-  {Icon: FaGithub, link:"https://github.com/mishraashutosh25"}
+  {Icon: FaGithub, link:"https://github.com/mishraashutosh25"},
+  { Icon: FaEnvelope, link: "mailto:ashutoshmishra.dev25@gmail.com" },
 ]
 
 const glowVariants = {
