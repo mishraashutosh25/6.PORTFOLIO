@@ -21,7 +21,7 @@ export default function OverlayMenu({ isOpen, onClose }) {
         style={{ backgroundColor: "rgba(0, 0, 0, 0.94)" }}
         > 
           <button onClick={onClose}
-            className="absolute top-6 right-6 text-white text-3xl"
+            className="absolute top-6 right-6 cursor-pointer text-white text-3xl"
             aria-label="Close Menu"
           >
             <FiX />

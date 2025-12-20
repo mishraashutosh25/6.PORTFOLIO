@@ -71,15 +71,15 @@ return ()=>{
 
       <div className="flex item-center space-x-2">
         <img src={Logo} alt="logo" className="w-8 h-8"/>
-        <div className="text-2xl font-bold text-white hidden sm:block">
+        <div className="text-white font-semibold text-2xl  tracking-wide">
           Ashutosh
         </div>
 
       </div>
 
-      <div className="block lg:absolute lg:left-1/2 lg:transform lg:-translate-x-1/2">
+      <div className="block lg:absolute lg:left-1/2  lg:transform lg:-translate-x-1/2">
       <button onClick={()=> setMenuOpen(true)}
-      className="text-white text-3xl focus:outline-none"
+      className="text-white text-3xl cursor-pointer focus:outline-none"
       aria-label="open Menu"
       >
         <FiMenu/>
