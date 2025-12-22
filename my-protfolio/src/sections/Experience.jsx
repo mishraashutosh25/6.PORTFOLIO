@@ -132,9 +132,24 @@ export default function Experience() {
         className="relative"
       >
         <div className="sticky top-0 h-screen flex flex-col">
-          <h2 className="text-4xl sm:text-5xl font-semibold mt-6 text-center">
-            Experience
-          </h2>
+          <div className="pt-12 pb-6 sm:pt-16 sm:pb-8">
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-bold text-center bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
+            >
+              Experience
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-center text-gray-400 mt-3 text-sm sm:text-base px-4"
+            >
+               My professional journey through innovation and development.
+            </motion.p>
+          </div>
 
           <div className="flex flex-1 items-center justify-center px-6 pb-10">
             {/* DESKTOP – unchanged */}
