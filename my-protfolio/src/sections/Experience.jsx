@@ -131,15 +131,16 @@ export default function Experience() {
         style={{ height: `${SCENE_HEIGHT_VH}vh`, minHeight: "120vh" }}
         className="relative"
       >
-        <div className="sticky top-0 h-screen flex flex-col">
+             <div className="sticky top-0 h-screen flex flex-col">
           <div className="pt-12 pb-6 sm:pt-16 sm:pb-8">
-            <motion.h2
+            <motion.h2 
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="text-4xl sm:text-5xl md:text-6xl font-bold text-center bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
-            >
-              Experience
+            > <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
+                Experience
+              </span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0 }}
@@ -147,7 +148,7 @@ export default function Experience() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-center text-gray-400 mt-3 text-sm sm:text-base px-4"
             >
-               My professional journey through innovation and development.
+              My professional journey and contributions
             </motion.p>
           </div>
 
