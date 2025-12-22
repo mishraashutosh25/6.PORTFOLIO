@@ -4,33 +4,37 @@ import { motion, useScroll, useTransform } from "framer-motion";
 /* ===================== DATA ===================== */
 
 const experience = [
-  {
+{
     role: "Backend Development Intern",
     company: "CodeAlpha",
     duration: "Aug 2025 – Oct 2025",
     description:
       "Completed a virtual backend internship focused on scalable server-side logic, RESTful APIs, authentication, database operations, and secure backend architecture in a remote team environment.",
+    icon: "🔧"
   },
   {
-    role: "Full-Stack Web Developer Intern",
+    role: "Full-Stack Developer Intern",
     company: "NullClass",
     duration: "2025",
     description:
       "Building end-to-end web solutions with a focus on responsive UI, backend logic, API integration, database management, and real-world deployment.",
-  },
-  {
+    icon: "💻"},
+    {
     role: "Full-Stack Developer",
     company: "Krishiora – Smart Farming Platform",
     duration: "2025",
     description:
       "Developing an AI-powered farming platform enabling soil analysis, weather-based crop planning, smart irrigation, fertilizer recommendations, and an online mandi system.",
-  },
+    icon: "🌾"
+  
+    },
   {
     role: "Full-Stack Developer",
-    company: "Real-Time Ride Booking App (Uber-Clone)",
+    company: "Real-Time Ride Booking App",
     duration: "2024 – 2025",
     description:
       "Built a real-time Uber-style ride booking system with JWT authentication, maps-based tracking, OTP verification, and real-time ride updates.",
+     icon: "🚗"  
   },
 ];
 
@@ -39,7 +43,7 @@ const experience = [
 function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
   const scale = useTransform(scrollYProgress, [start, end], [0, 1]);
   const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
-  const y = useTransform(scrollYProgress, [start, end], [idx % 2 === 0 ? 30 : -30, 0]);
+  const y = useTransform(scrollYProgress, [start, end], [idx % 2 === 0 ? 30 :-40, 0]);
   const x = useTransform(scrollYProgress, [start, end], [-24, 0]);
 
   if (layout === "desktop") {
@@ -59,11 +63,14 @@ function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
           p-7 w-[320px] shadow-lg`}
           style={{ opacity, y }}
         >
+          <div className="text-2xl">{exp.icon}</div>
           <h3 className="text-xl font-semibold">{exp.role}</h3>
-          <p className="text-sm text-gray-400 mb-3">
-            {exp.company} | {exp.duration}
-          </p>
-          <p className="text-sm text-gray-300">{exp.description}</p>
+        <div className="flex items-center gap-2 text-xs text-slate-400">
+                <span className="font-medium text-cyan-400">{exp.company}</span>
+                <span>•</span>
+                <span>{exp.duration}</span>
+              </div>
+          <p className="text-sm text-slate-300 leading-relaxed">{exp.description}</p>
         </motion.article>
       </div>
     );
@@ -72,7 +79,7 @@ function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
   /* ===================== MOBILE ===================== */
 
   return (
-    <div className="relative flex items-start">
+    <div className="relative flex items-start gap-6 mb-12">
       {/* DOT */}
       <motion.div
         className="absolute left-[18px] -translate-x-1/2 z-20 w-5 h-5 rounded-full bg-white
@@ -81,15 +88,22 @@ function ExperienceItem({ exp, idx, start, end, scrollYProgress, layout }) {
       />
 
       {/* CARD */}
-      <motion.article
-        className="bg-gray-900/80 backdrop-blur border border-gray-700/70 rounded-xl
-        p-6 w-[85vw] ml-10 shadow-lg mb-24"
+       <motion.article
+        className="flex-1 bg-slate-900/90 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-5
+        active:scale-[0.98] transition-transform"
         style={{ opacity, x }}
       >
-        <h3 className="text-lg font-semibold">{exp.role}</h3>
-        <p className="text-sm text-gray-400 mb-2">
-          {exp.company} | {exp.duration}
-        </p>
+         <div className="flex items-start gap-3 mb-3">
+          <div className="text-2xl">{exp.icon}</div>
+          <div className="flex-1">
+            <h3 className="text-base font-bold text-white mb-1">{exp.role}</h3>
+            <div className="flex flex-wrap items-center gap-2 text-xs text-slate-400">
+              <span className="font-medium text-cyan-400">{exp.company}</span>
+              <span>•</span>
+              <span>{exp.duration}</span>
+            </div>
+          </div>
+        </div>
         <p className="text-sm text-gray-300">{exp.description}</p>
       </motion.article>
     </div>
@@ -110,7 +124,7 @@ export default function Experience() {
   }, []);
 
   // Desktop SAME, mobile space adjusted
-  const SCENE_HEIGHT_VH = isMobile ? 220 * experience.length : 120;
+  const SCENE_HEIGHT_VH = isMobile ? 180 * experience.length : 130;
 
   const { scrollYProgress } = useScroll({
     target: sceneRef,
@@ -122,7 +136,7 @@ export default function Experience() {
     []
   );
 
-  const lineSize = useTransform(scrollYProgress, (v) => `${v * 100}%`);
+   const lineWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
     <section id="experience" className="relative bg-black text-white">
@@ -136,7 +150,7 @@ export default function Experience() {
             <motion.h2 
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.7 }}
               className="text-4xl sm:text-5xl md:text-6xl font-bold text-center bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent"
             > <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent animate-gradient bg-[length:200%_auto]">
                 Experience
@@ -159,7 +173,7 @@ export default function Experience() {
                 <div className="relative h-[6px] bg-white/15 rounded">
                   <motion.div
                     className="absolute left-0 top-0 h-[6px] bg-white rounded origin-left"
-                    style={{ width: lineSize }}
+                    style={{ width: lineWidth }}
                   />
                 </div>
 
@@ -185,7 +199,7 @@ export default function Experience() {
                 <div className="absolute left-[18px] top-0 bottom-0 w-[3px] bg-white/25">
                   <motion.div
                     className="absolute left-0 top-0 w-[3px] bg-white origin-top"
-                    style={{ height: lineSize }}
+                    style={{ height: lineWidth }}
                   />
                 </div>
 
