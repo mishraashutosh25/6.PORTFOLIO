@@ -1,5 +1,9 @@
 import React from 'react'
 import { motion } from 'framer-motion';
+import m1 from "../assets/m1.png";
+import m2 from "../assets/m2.png";
+import m3 from "../assets/m3.png";
+import m4 from "../assets/m4.png";
 
 
 const testimonials = [
@@ -8,24 +12,28 @@ const testimonials = [
     role: "Full-Stack Developer",
     review:
       "Ashutosh was responsible for backend APIs and database design. He writes clean code and communicates clearly during development.",
+    image: m1,
   },
   {
     name: "Hackathon Partner",
     role: "Frontend Developer",
     review:
       "Very consistent and focused. Ashutosh always looks for scalable and practical solutions.",
+    image: m2,
   },
     {
     name: "Hackathon Teammate",
     role: "UI Developer",
     review:
       "He is disciplined and reliable. Ashutosh focuses on writing scalable solutions and always completes tasks on time.",
+    image: m3,
   },
   {
   name: "College Project Guide",
   role: "Backend Developer",
   review:
     "Ashutosh managed the backend APIs and database for our project. His structured approach made frontend integration straightforward.",
+  image: m4,
 },
 
 ];
@@ -52,7 +60,7 @@ const Testimonials = () => {
           transition={{ duration: 0.6, delay: i * 0.2 }}
           viewport={{once:true}}
           className='bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 flex flex-col items-center text-center transform transition duration-500 hover:scale-105 hover:-rotate-1'>
-            <div className="text-2xl italic mb-4">❝</div>
+           <img src={t.image} alt={t.name} className="w-20 h-20 rounded-full mb-4 object-cover" />
             <p className="text-gray-300 mb-4">{t.review}</p>
             <div className="flex items-center">
               <span className="font-bold text-white">{t.name}</span>
