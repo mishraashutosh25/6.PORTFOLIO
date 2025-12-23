@@ -5,7 +5,7 @@ import {
   AnimatePresence,
   motion,
 } from "framer-motion"
-import { Github } from "lucide-react"
+import { Github, ExternalLink } from "lucide-react"
 
 
 import img1 from "../assets/photo1.png"
@@ -50,6 +50,7 @@ export default function Projects() {
         link: "https://www.krishior.in/",
         github: "https://github.com/mishraashutosh25/krishiora",
         bgcolor: "#0f2e1c",
+        description: "Agricultural innovation platform",
         image: isMobile ? photo1 : img1,
       },
       {
@@ -57,6 +58,7 @@ export default function Projects() {
         link: "https://www.ArogayLink-.com/",
         github: "https://github.com/mishraashutosh25/ArogayLink-",
         bgcolor: "#357a95ff",
+        description: "Healthcare connectivity solution",
         image: isMobile ? photo2 : img2,
       },
     ],
@@ -101,7 +103,7 @@ export default function Projects() {
       {/* ===== BACKGROUND ENHANCEMENT END ===== */}
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center gap-6 px-4">
         <h2
-          className={`text-5xl md:text-6xl font-semibold text-center transition-all duration-300 ${isMobile ? "mt-4" : "mt-8"
+          className={`text-5xl md:text-6xl font-semibold text-center transition-all duration-300 ${isMobile ? "mt-2" : "mt-4"
             }`}
         >
           My Work
@@ -116,25 +118,32 @@ export default function Projects() {
               key={project.title}
               className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ${activeIndex === idx ? "opacity-100 z-10" : "opacity-0 z-0"
                 }`}
-              style={{ width: "85%", maxWidth: "1200px" }}
+              style={{ width: "100%", maxWidth: "1200px" }}
             >
               <AnimatePresence mode="wait">
                 {activeIndex === idx && (
-                  <motion.h3
-                    key={project.title}
-                    initial={{ opacity: 0, y: -30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 30 }}
-                    transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className={`block text-center text-[clamp(3rem,6vw,5rem)] text-white/95 sm:absolute sm:-top-20 sm:left-[30%] lg:left-[-8%] italic font-semibold ${isMobile ? "-mt-24" : ""
-                      }`}
-                    style={{
-                      zIndex: 9,
-                      textAlign: isMobile ? "center" : "left",
-                    }}
-                  >
-                    {project.title}
-                  </motion.h3>
+                  <>
+    
+                    {/* Project Title */}
+                    <motion.h3
+                      key={project.title}
+                      initial={{ opacity: 0, y: -50, scale: 0.9, rotateX: -15 }}
+                      animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+                      exit={{ opacity: 0, y: 50, scale: 0.9, rotateX: 15 }}
+                      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                      className={`block text-center text-[clamp(2.5rem,8vw,7rem)] font-black tracking-[-0.02em] bg-gradient-to-br from-white via-white to-white/50 bg-clip-text text-transparent sm:absolute sm:-top-28 sm:left-[25%] lg:left-[-12%] ${isMobile ? "-mt-16" : ""
+                        }`}
+                      style={{
+                        zIndex: 5,
+                        textAlign: isMobile ? "center" : "left",
+                        textShadow: "0 5px 32px rgba(0,0,0,0.4)",
+                        fontStyle: "italic",
+                        letterSpacing: "-0.01em"
+                      }}
+                    >
+                      {project.title}
+                    </motion.h3>
+                  </>
                 )}
               </AnimatePresence>
               <div className={`relative w-full overflow-hidden bg-black/20 shadow-2xl md:shadow-[0_35px_60_-15px_rgba(0,0,0,0.7)] ${isMobile ? "mb-6 rounded-lg" : "mb-10 sm:mb-12 rounded-xl"
@@ -163,38 +172,67 @@ export default function Projects() {
               </div>
             </div>
           ))}
-        </div>
-<motion.div
-  className="relative z-30 -mt-11 +mt-3 flex items-center gap-4"
-  initial={{ opacity: 0, y: 12 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.4 }}
->
-  {/* View Project */}
-  <a
-    href={activeProject.link}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center gap-2 rounded-full bg-black/80 px-5 py-2.5 text-sm font-medium hover:bg-black transition"
-  >
-    View Project →
-  </a>
+      </div>
+             {/* CTA Buttons */}
+        <motion.div
+          className="relative z-30 -mt-6 flex flex-wrap items-center justify-center gap-3"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.6 }}
+        >
+          {/* View Project Button */}
+          <motion.a
+            href={activeProject.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative flex items-center gap-2.5 rounded-full bg-white text-black px-8 py-3.5 text-sm font-bold shadow-[0_8px_30px_rgba(255,255,255,0.35),0_0_0_1px_rgba(255,255,255,0.1)] overflow-hidden group"
+            whileHover={{ scale: 1.06, y: -2 }}
+            whileTap={{ scale: 0.96 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+          >
+            <span className="relative z-10 tracking-wide">View Project</span>
+            <ExternalLink size={16} className="relative z-10 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 duration-300" />
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-r from-gray-100 via-white to-gray-100"
+              animate={{ 
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+              }}
+              transition={{ 
+                duration: 3, 
+                repeat: Infinity, 
+                ease: "linear" 
+              }}
+              style={{ 
+                backgroundSize: "200% 100%",
+                opacity: 0
+              }}
+              whileHover={{ opacity: 1 }}
+            />
+          </motion.a>
 
-  {/* GitHub */}
-  <a
-    href={activeProject.github}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center gap-1 rounded-full border border-white/40 px-3 py-2.5 text-sm font-medium backdrop-blur-md hover:bg-white hover:text-black transition"
-  >
-    <Github size={18} />
-    GitHub
-  </a>
-</motion.div>
+          {/* GitHub Button */}
+          <motion.a
+            href={activeProject.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative flex items-center gap-2.5 rounded-full border-2 border-white/40 backdrop-blur-xl bg-white/[0.12] px-7 py-3.5 text-sm font-bold shadow-[0_8px_24px_rgba(0,0,0,0.25)] overflow-hidden group hover:border-white/60"
+            whileHover={{ scale: 1.06, y: -2, backgroundColor: "rgba(255,255,255,0.18)" }}
+            whileTap={{ scale: 0.96 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+          >
+            <Github size={18} className="relative z-10 transition-all group-hover:rotate-[360deg] duration-700" />
+            <span className="relative z-10 tracking-wide">GitHub</span>
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full"
+              whileHover={{ translateX: "100%" }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+            />
+          </motion.a>
+        </motion.div>
 
-        </div>
+    </div>
 
       
-    </section>
+    </section >
   )
 }
