@@ -49,100 +49,98 @@ export default function Home() {
   }, [subIndex, deleting, index, roles]);
 
   return (
-  <section
-    id="home"
-    className="relative w-full h-screen bg-black overflow-hidden"
-  >
-    <ParticlesBackground />
+    <section
+      id="home"
+      className="relative w-full h-screen bg-black overflow-hidden"
+    >
+      <ParticlesBackground />
 
-    {/* Background Gradient Blobs */}
-    <div className="absolute inset-0 z-0 pointer-events-none">
-      <div className="absolute -top-32 -left-32 w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] opacity-20 blur-[140px]" />
-      <div className="absolute bottom-0 right-0 w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] opacity-20 blur-[140px]" />
-    </div>
-
-    {/* MAIN CONTENT */}
-    <div className="relative z-20 flex items-center h-full px-6 lg:px-40">
-
-      {/* LEFT CONTENT */}
-      <div className="max-w-3xl">
-        <motion.h1
-          className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-        >
-          Hello I'm <br />
-          <span className="text-[#1cd8d2]">Ashutosh Mishra</span>
-        </motion.h1>
-
-        <motion.p
-          className="mt-6 text-gray-400 text-lg leading-relaxed max-w-xl"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-        >
-          Where creative vision meets scalable engineering —
-          building fast, intuitive and future-ready digital experiences.
-        </motion.p>
-
-        {/* BUTTONS */}
-        <motion.div
-          className="relative z-30 mt-8 flex gap-6 flex-wrap"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-        >
-          {/* EXPLORE BUTTON */}
-          <a
-            href="#projects"
-            className="cursor-pointer px-6 py-3 rounded-full text-white font-medium bg-gradient-to-r from-pink-500 to-blue-500 shadow-lg hover:scale-110 transition-transform flex items-center gap-2"
-          >
-            Explore My Work →
-          </a>
-
-          {/* RESUME BUTTON */}
-          <a
-            href="/Resume.pdf"
-            download="Ashutosh_Mishra_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cursor-pointer px-8 py-3 rounded-full text-black bg-white font-medium shadow-lg hover:bg-gray-300 hover:scale-105 transition-transform"
-          >
-            My Resume
-          </a>
-        </motion.div>
-
-        {/* SOCIAL ICONS */}
-        <motion.div
-          className="relative z-30 mt-8 flex gap-4"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-        >
-          {socials.map(({ Icon, link }) => (
-            <a
-              key={link}
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cursor-pointer w-14 h-14 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 backdrop-blur hover:border-cyan-400 transition"
-            >
-              <Icon size={24} className="text-gray-400 hover:text-white" />
-            </a>
-          ))}
-        </motion.div>
+      {/* Background Gradient Blobs */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute -top-32 -left-32 w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] opacity-20 blur-[140px]" />
+        <div className="absolute bottom-0 right-0 w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] rounded-full bg-gradient-to-r from-[#302b63] via-[#00bf8f] to-[#1cd8d2] opacity-20 blur-[140px]" />
       </div>
 
-      {/* RIGHT IMAGE */}
-      <motion.img
-        src={yash}
-        alt="Ashutosh Mishra"
-        className="absolute right-0 bottom-0 md:top-1/2 md:-translate-y-1/2 w-[75vw] md:w-[40vw] pointer-events-none select-none z-10"
-        initial={{ opacity: 0, x: 120, scale: 0.9 }}
-        animate={{ opacity: 1, x: 0, scale: 1 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
-      />
-    </div>
-  </section>
-);
+      {/* MAIN CONTENT */}
+      <div className="relative z-20 flex items-center h-full px-6 lg:px-40">
+
+        {/* LEFT CONTENT */}
+        <div className="max-w-3xl">
+          <motion.h1
+            className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            Hello I'm <br />
+            <span className="text-[#1cd8d2]">Ashutosh Mishra</span>
+          </motion.h1>
+
+          <motion.p
+            className="mt-6 text-gray-400 text-lg leading-relaxed max-w-xl"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            Where creative vision meets scalable engineering —
+            building fast, intuitive and future-ready digital experiences.
+          </motion.p>
+
+          {/* BUTTONS */}
+          <motion.div
+            className="relative z-30 mt-8 flex gap-6 flex-wrap"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            {/* EXPLORE BUTTON */}
+            <a
+              href="#projects"
+              className="cursor-pointer px-6 py-3 rounded-full text-white font-medium bg-gradient-to-r from-pink-500 to-blue-500 shadow-lg hover:scale-110 transition-transform flex items-center gap-2"
+            >
+              Explore My Work →
+            </a>
+
+            {/* RESUME BUTTON */}
+            <a
+              href="/Resume.pdf"
+              download
+              className="cursor-pointer px-8 py-3 rounded-full text-black bg-white font-medium shadow-lg hover:bg-gray-300 hover:scale-105 transition-transform"
+            >
+              My Resume
+            </a>
+          </motion.div>
+
+          {/* SOCIAL ICONS */}
+          <motion.div
+            className="relative z-30 mt-8 flex gap-4"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.7 }}
+          >
+            {socials.map(({ Icon, link }) => (
+              <a
+                key={link}
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cursor-pointer w-14 h-14 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 backdrop-blur hover:border-cyan-400 transition"
+              >
+                <Icon size={24} className="text-gray-400 hover:text-white" />
+              </a>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* RIGHT IMAGE */}
+        <motion.img
+          src={yash}
+          alt="Ashutosh Mishra"
+          className="absolute right-0 bottom-0 md:top-1/2 md:-translate-y-1/2 w-[75vw] md:w-[40vw] pointer-events-none select-none z-10"
+          initial={{ opacity: 0, x: 120, scale: 0.9 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        />
+      </div>
+    </section>
+  );
 }
