@@ -102,7 +102,7 @@ export default function Home() {
 
             {/* RESUME BUTTON */}
             <a
-              href="/Resume.pdf"
+              href="Resume.pdf"
               download
               className="cursor-pointer px-8 py-3 rounded-full text-black bg-white font-medium shadow-lg hover:bg-gray-300 hover:scale-105 transition-transform"
             >
