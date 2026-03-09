@@ -1,169 +1,195 @@
+ Ashutosh Mishra — Developer Portfolio
 
-# 🚀 Portfolio — Modern React Developer
 
-[![Vite](https://img.shields.io/badge/Vite-Ready-brightgreen?logo=vite&logoColor=white)](https://vitejs.dev/) [![React](https://img.shields.io/badge/React-18-blue?logo=react&logoColor=white)](https://reactjs.org/) [![Tailwind](https://img.shields.io/badge/TailwindCSS-Configured-38B2AC?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/) [![Framer Motion](https://img.shields.io/badge/Framer%20Motion-Animations-FF4D6D?logo=framer)](#)
 
-Professional, animated, responsive portfolio website built with React, Vite, Tailwind CSS and Framer Motion. Designed to showcase projects, skills, and provide an easy resume download for hiring managers.
 
----
 
-## 🔍 Overview
 
-This repository contains a modern personal portfolio website featuring an animated hero, skills carousel, projects gallery, and contact section. It's optimized for fast development with Vite and styled using Tailwind CSS. The UI uses Framer Motion for smooth animations and React Icons for crisp icons.
 
-Key highlights:
-- Animated hero with entrance transitions
-- Interactive skills carousel
-- Project cards with live/demo & repo links
-- Resume download (drop your `resume.pdf` in `public/`)
-- Responsive, accessible, and performance-minded
 
----
+A modern, responsive and animated developer portfolio built with React, Vite, Tailwind CSS, and Framer Motion.
+This project is designed to showcase projects, skills, and experience in a visually appealing and professional way.
 
-## ✨ Features
+🌐 Live Website
 
-- 🔹 Animated hero section (Framer Motion)
-- 🔹 Skills carousel with icons and levels
-- 🔹 Projects section with images, descriptions, and links
-- 🔹 Resume download button (static `public/resume.pdf`)
-- 🔹 Responsive layout (mobile-first) with Tailwind CSS
-- 🔹 Accessible markup and keyboard-friendly interactions
-- 🔹 Easy deployment to Vercel / Netlify
+🔗 Portfolio:
+https://ashutoshdevprotfolio.netlify.app/
 
----
+📌 Overview
 
-## 🛠️ Tech Stack
+This portfolio website highlights my work as a developer and provides an easy way for recruiters and collaborators to explore my projects and skills.
 
-- React
-- Vite
-- Tailwind CSS
-- Framer Motion
-- React Icons
-- Node.js / npm
+It includes:
 
----
+Animated hero section
 
-## ⚙️ Installation
+Skills showcase
+
+Project gallery
+
+Resume download
+
+Contact section
+
+Responsive design
+
+The website focuses on performance, clean UI, and smooth animations.
+
+✨ Features
+
+✔ Animated hero section using Framer Motion
+✔ Responsive design with Tailwind CSS
+✔ Projects showcase with GitHub & Live Demo links
+✔ Skills section with modern layout
+✔ Resume download feature
+✔ Mobile-friendly interface
+✔ Clean and scalable React structure
+
+🛠 Tech Stack
+Frontend
+
+React
+
+Vite
+
+Tailwind CSS
+
+Framer Motion
+
+React Icons
+
+Tools
+
+Git
+
+GitHub
+
+VS Code
+
+Netlify (deployment)
+
+⚙ Installation
 
 Clone the repository and install dependencies.
 
-```powershell
-# Clone
-git clone https://github.com//mishraashutosh25/my-portfolio.git
-cd my-portfolio
+git clone https://github.com/mishraashutosh25/6.PORTFOLIO.git
+cd 6.PORTFOLIO
 
-# Install dependencies
 npm install
-```
+▶ Running the Project
 
----
+Start development server:
 
-## ▶️ How to Run (Local)
-
-Start the dev server and view the site locally.
-
-```powershell
-# Start development server (Vite)
 npm run dev
 
-# Build for production
+Build production version:
+
 npm run build
 
-# Preview production build locally
+Preview production build:
+
 npm run preview
-```
+📁 Project Structure
+portfolio
+│
+├── public
+│   ├── resume.pdf
+│   └── images
+│
+├── src
+│   ├── components
+│   │   ├── Navbar.jsx
+│   │   ├── Hero.jsx
+│   │   ├── Skills.jsx
+│   │   ├── Projects.jsx
+│   │   └── Contact.jsx
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+│
+└── index.html
+💼 Featured Projects
+🌐 Portfolio Website
 
-Tip: If you use PowerShell and run into script execution warnings, run PowerShell as Administrator or adjust `ExecutionPolicy` for the session.
+Modern animated developer portfolio built with React.
 
----
+Tech Stack
 
-## 📁 Project Structure
+React
 
-- `index.html` — HTML entry
-- `src/` — React source
-	- `src/main.jsx` — app bootstrap
-	- `src/App.jsx` — root component
-	- `src/components/` — UI components (Navbar, Hero, Projects, Skills, Contact, etc.)
-- `src/index.css` — Tailwind + custom styles
-- `public/` — static assets (add `resume.pdf` and screenshots here)
+Vite
 
----
+Tailwind CSS
 
-## 💼 Projects
+Framer Motion
 
-| Project | Description | Tech | Live / Repo |
-| --- | --- | --- | --- |
-| Awesome Portfolio | Personal portfolio template with animations and projects gallery | React, Vite, Tailwind, Framer Motion | [Live](https://your-live-url) • [Repo](https://github.com/your-username/your-repo) |
-| Project Two | Brief description of project two | React, Node, Tailwind | [Live](#) • [Repo](#) |
-| Project Three | Brief description of project three | React, Express, MongoDB | [Live](#) • [Repo](#) |
+🔗 Live:
+https://ashutoshdevprotfolio.netlify.app/
 
-Replace the above rows with your real projects. For each project, include a short description, the main technologies used, and links to both a live demo and the repository.
+🔗 Repository:
+https://github.com/mishraashutosh25/6.PORTFOLIO
 
----
+🌾 KisanSetu (Smart Farming Platform)
 
-## 🖼️ Screenshots
+A smart agriculture platform helping farmers with modern technology.
 
-Place screenshots in `public/` or `public/screenshots/`. Use the exact filenames below or update the paths if you move files.
+Features
 
-### 🏠 Hero Section  
+Soil Health Card Scanner
 
-### 🏠 Hero Section  
+Crop Planner
 
-<p align="center">
-	<img src="public/hero.png" alt="Hero Screenshot" style="width:900px;max-width:100%;height:auto;border-radius:8px;" />
-</p>
+Fertilizer Calculator
 
-Click the image to view the full-size screenshot. Using a relative path (`public/hero.png`) ensures GitHub renders the image correctly from this repository.
+Online Mandi System
 
-### 🧠 Skills Section  
+Tech Stack
 
-<p align="center">
-	<img src="public/skills.png" alt="Skills Screenshot" style="width:900px;max-width:100%;height:auto;border-radius:8px;" />
-</p>
----
+React
+Node.js
+Supabase
+OpenWeather API
 
-## 🔗 Live Demo
+🖼 Screenshots
+Hero Section
 
-Visit the live site:
+Skills Section
 
-🔗 https://ashutoshdevprotfolio.netlify.app/ (replace with your deployed URL)
+📄 Resume
 
-You can deploy quickly with Vercel or Netlify. Connect the repo, set build command to `npm run build` and publish directory to `dist`.
+Add your resume in:
 
----
+public/resume.pdf
 
-## 📥 Resume
+Download button automatically works using:
 
-Add your resume to `public/resume.pdf`. The site links to `/resume.pdf` for download.
+<a href="/resume.pdf" download>Download Resume</a>
+📬 Contact
 
-Example HTML snippet (if needed):
+📧 Email
+ashutoshmishra.dev25@gmail.com
 
-```html
-<a href="/resume.pdf" download class="btn">Download Resume</a>
-```
+💻 GitHub
+https://github.com/mishraashutosh25
 
----
+🔗 LinkedIn
+https://www.linkedin.com/in/ashutoshmishradev12/
 
-## 📨 Contact
+🤝 Contributing
 
-- **Email:** ashutoshmishra.dev25@gmail.com
-- **GitHub:** https://github.com/mishraashutosh25
-- **LinkedIn:**https://www.linkedin.com/in/ashutoshmishradev12/
+Contributions are welcome.
 
-Feel free to open an issue or create a PR for suggestions or improvements.
+If you'd like to improve the project:
 
----
+Fork the repository
 
-## 🤝 Contributing
+Create a new branch
 
-Contributions are welcome — fork the project and open a pull request. For major changes, please open an issue first to discuss your ideas.
+Make your changes
 
----
+Submit a pull request
 
-## 📜 License
+📜 License
 
-This project is licensed under the MIT License — see the `LICENSE` file for details.
-
----
-
-Thank you for checking out this portfolio — built with a focus on performance, accessibility and delightful animations.
+This project is licensed under the MIT License.
