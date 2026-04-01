@@ -16,29 +16,26 @@ export default function FloatingMusicButton() {
 
   return (
     <>
-      <audio ref={audioRef} src="/music.mp3" loop preload="auto" />
+      <audio ref={audioRef} src="/music.mp3" loop preload="none" />
 
       {/* CONTAINER: Text + Button both together */}
       <div
         className="
-          fixed bottom-5 right-6 z-[999]
-          flex flex-col items-center gap-2
+          fixed bottom-3 right-3 md:bottom-5 md:right-6 z-[999]
+          flex flex-col items-end md:items-center gap-2
+          transform scale-75 md:scale-100 origin-bottom-right
         "
       >
         {/* Dynamic Text */}
-        {!playing ? (
-          <p className="text-white italic text-sm tracking-wide text-center w-max">
-            Wanna play music while scrolling??
-          </p>
-        ) : (
-          <p className="text-white italic text-sm tracking-wide text-center w-max">
-            Double tap to the music.
-          </p>
-        )}
+        <p className="text-white italic text-sm tracking-wide text-center w-max transition-opacity duration-300">
+          {!playing ? "Wanna play music while scrolling??" : "Double tap to pause the music."}
+        </p>
 
         {/* PLAY BUTTON */}
         <button
           onClick={toggleMusic}
+          aria-label={playing ? "Pause background music" : "Play background music"}
+          aria-pressed={playing}
           className="
             relative p-3 rounded-full
             bg-gradient-to-br from-cyan-400 to-emerald-400
@@ -49,7 +46,7 @@ export default function FloatingMusicButton() {
           "
         >
           <span
-            className="absolute inset-[-6px] rounded-full border-2 border-cyan-300/40 animate-spin-slow blur-[1px]"
+            className="absolute inset-[-6px] rounded-full border-2 border-cyan-300/40 animate-[spin_6s_linear_infinite] blur-[1px]"
           ></span>
 
           <span className="absolute inset-0 rounded-full bg-cyan-300/30 blur-xl animate-pulse"></span>
@@ -61,17 +58,6 @@ export default function FloatingMusicButton() {
           )}
         </button>
       </div>
-
-      {/* Spin Animation */}
-      <style>{`
-        @keyframes spin-slow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        .animate-spin-slow {
-          animation: spin-slow 6s linear infinite;
-        }
-      `}</style>
     </>
   );
 }

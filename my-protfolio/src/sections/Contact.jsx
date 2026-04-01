@@ -1,66 +1,79 @@
-import ParticlesBackground from "../compnents/ParticlesBackground";
 import { useState } from "react";
+import ParticlesBackground from "../components/ParticlesBackground";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import Astra from "../assets/Astra.png";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import InputField from "../components/ui/InputField";
 
+const contactSchema = z
+  .object({
+    name: z.string().min(1, "Name is required"),
+    email: z.string().min(1, "Email is required").email("Invalid email address"),
+    service: z.string().min(1, "Service is required"),
+    budget: z.string().optional(),
+    idea: z.string().min(1, "Please explain your idea"),
+  })
+  .superRefine((data, ctx) => {
+    if (data.service !== "Others") {
+      if (!data.budget) {
+        ctx.addIssue({
+          path: ["budget"],
+          message: "Budget is required",
+          code: z.ZodIssueCode.custom,
+        });
+      } else if (!/^\d+$/.test(data.budget)) {
+        ctx.addIssue({
+          path: ["budget"],
+          message: "Budget must be numbers only",
+          code: z.ZodIssueCode.custom,
+        });
+      }
+    }
+  });
 
 const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
 
-export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    service: "",
-    budget: "",
-    idea: "",
-  });
+const SERVICES = [
+  "Full Stack Developer",
+  "Frontend Developer",
+  "Backend Developer",
+  "Mobile App Developer",
+  "Software Engineer",
+  "Others"
+];
 
-  const [errors, setErrors] = useState({});
+export default function Contact() {
   const [status, setStatus] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "budget" && value && !/^\d+$/.test(value)) return;
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    resolver: zodResolver(contactSchema),
+    defaultValues: { name: "", email: "", service: "", budget: "", idea: "" },
+  });
 
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
-  };
+  const selectedService = watch("service");
 
-  const validateForm = () => {
-    const required = ["name", "email", "service", "idea"];
-    const newErrors = {};
-
-    required.forEach((f) => {
-      if (!formData[f].trim()) newErrors[f] = "Fill this field";
-    });
-
-    if (formData.service !== "Others" && !formData.budget.trim()) {
-      newErrors.budget = "Fill this field";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!validateForm()) return;
-
+  const onSubmit = async (data) => {
     setStatus("sending");
-
     try {
       await emailjs.send(
         SERVICE_ID,
         TEMPLATE_ID,
-        { ...formData, from_name: formData.name, reply_to: formData.email },
+        { ...data, from_name: data.name, reply_to: data.email },
         PUBLIC_KEY
       );
-
       setStatus("success");
-      setFormData({ name: "", email: "", service: "", budget: "", idea: "" });
+      reset();
     } catch (err) {
       console.error("EmailJS Error:", err);
       setStatus("error");
@@ -72,13 +85,9 @@ export default function Contact() {
       id="contact"
       className="relative w-full min-h-screen bg-black overflow-hidden text-white py-20 px-6 md:px-20 flex flex-col md:flex-row items-center gap-10"
     >
-      
-<ParticlesBackground />
-    
+      <ParticlesBackground />
 
-      {/* Main Content */}
       <div className="w-full flex flex-col md:flex-row items-center gap-10 relative z-10">
-        
         {/* IMAGE */}
         <motion.div
           className="w-full md:w-1/2 flex justify-center"
@@ -104,107 +113,52 @@ export default function Contact() {
         >
           <h2 className="text-3xl font-bold mb-6">Let’s Work Together</h2>
 
-          <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+          <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
+            
+            <InputField
+              label="Your Name"
+              name="name"
+              placeholder="Your Name"
+              register={register}
+              error={errors.name}
+            />
 
-            {/* Name */}
-            <div className="flex flex-col">
-              <label className="mb-1">
-                Your Name <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleChange}
-                className={`p-3 rounded-md bg-white/10 border ${
-                  errors.name ? "border-red-500" : "border-gray-500"
-                } text-white focus:outline-none`}
+            <InputField
+              label="Your Email"
+              name="email"
+              type="email"
+              placeholder="Your Email"
+              register={register}
+              error={errors.email}
+            />
+
+            <InputField
+              label="Service Needed"
+              name="service"
+              type="select"
+              options={SERVICES}
+              register={register}
+              error={errors.service}
+            />
+
+            {selectedService && selectedService !== "Others" && (
+              <InputField
+                label="Budget"
+                name="budget"
+                placeholder="Your Budget (e.g., 5000)"
+                register={register}
+                error={errors.budget}
               />
-              {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
-            </div>
-
-            {/* Email */}
-            <div className="flex flex-col">
-              <label className="mb-1">
-                Your Email <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleChange}
-                className={`p-3 rounded-md bg-white/10 border ${
-                  errors.email ? "border-red-500" : "border-gray-500"
-                } text-white focus:outline-none`}
-              />
-              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-            </div>
-
-            {/* Service */}
-            <div className="flex flex-col">
-              <label className="mb-1">
-                Service Needed <span className="text-red-500">*</span>
-              </label>
-              <select
-                name="service"
-                value={formData.service}
-                onChange={handleChange}
-                className={`p-3 rounded-md bg-white/10 border ${
-                  errors.service ? "border-red-500" : "border-gray-500"
-                } text-white focus:outline-none`}
-              >
-                <option value="" disabled>Select your profession</option>
-
-                <option value="Full Stack Developer" className="text-black">Full Stack Developer</option>
-                <option value="Frontend Developer" className="text-black">Frontend Developer</option>
-                <option value="Backend Developer" className="text-black">Backend Developer</option>
-                <option value="Mobile App Developer" className="text-black">Mobile App Developer</option>
-                <option value="Software Engineer" className="text-black">Software Engineer</option>
-                <option value="Others" className="text-black">Others</option>
-              </select>
-
-              {errors.service && <p className="text-red-500 text-sm mt-1">{errors.service}</p>}
-            </div>
-
-            {/* Budget */}
-            {formData.service && formData.service !== "Others" && (
-              <div className="flex flex-col">
-                <label className="mb-1">
-                  Budget <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="budget"
-                  placeholder="Your Budget"
-                  value={formData.budget}
-                  onChange={handleChange}
-                  className={`p-3 rounded-md bg-white/10 border ${
-                    errors.budget ? "border-red-500" : "border-gray-500"
-                  } text-white focus:outline-none`}
-                />
-                {errors.budget && <p className="text-red-500 text-sm mt-1">{errors.budget}</p>}
-              </div>
             )}
 
-            {/* Idea */}
-            <div className="flex flex-col">
-              <label className="mb-1">
-                Explain Your Idea <span className="text-red-500">*</span>
-              </label>
-              <textarea
-                name="idea"
-                rows={5}
-                placeholder="Enter Your Idea"
-                value={formData.idea}
-                onChange={handleChange}
-                className={`p-3 rounded-md bg-white/10 border ${
-                  errors.idea ? "border-red-500" : "border-gray-500"
-                } text-white focus:outline-none`}
-              />
-              {errors.idea && <p className="text-red-500 text-sm mt-1">{errors.idea}</p>}
-            </div>
+            <InputField
+              label="Explain Your Idea"
+              name="idea"
+              type="textarea"
+              placeholder="Enter Your Idea"
+              register={register}
+              error={errors.idea}
+            />
 
             {/* Status */}
             {status && (
@@ -233,12 +187,11 @@ export default function Contact() {
               className="bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white py-3 rounded-md font-semibold transition"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
-              disabled={status === "sending"}
+              disabled={isSubmitting || status === "sending"}
               type="submit"
             >
-              {status === "sending" ? "Sending..." : "Send Message"}
+              {isSubmitting || status === "sending" ? "Sending..." : "Send Message"}
             </motion.button>
-
           </form>
         </motion.div>
       </div>

@@ -7,33 +7,8 @@ import {
 } from "framer-motion"
 import { Github, ExternalLink } from "lucide-react"
 
-
-import img1 from "../assets/photo1.png"
-import img2 from "../assets/photo2.png"
-import photo1 from "../assets/photo1.png"
-import photo2 from "../assets/photo2.png"
-
-/* ===================== MOBILE DETECTION HOOK ===================== */
-
-const useIsMobile = (query = "(max-width: 639px)") => {
-  const [isMobile, setIsMobile] = useState(
-    typeof window !== "undefined" && window.matchMedia(query).matches
-  )
-
-  useEffect(() => {
-    if (typeof window === "undefined") return
-
-    const mql = window.matchMedia(query)
-    const handler = (e) => setIsMobile(e.matches)
-
-    mql.addEventListener("change", handler)
-    setIsMobile(mql.matches)
-
-    return () => mql.removeEventListener("change", handler)
-  }, [query])
-
-  return isMobile
-}
+import { useIsMobile } from "../hooks/useIsMobile"
+import { getProjectsData } from "../data/constants"
 
 /* ===================== PROJECTS COMPONENT ===================== */
 
@@ -43,27 +18,7 @@ export default function Projects() {
   const [activeIndex, setActiveIndex] = useState(0)
 
   /* ---------- PROJECT DATA ---------- */
-  const projects = useMemo(
-    () => [
-      {
-        title: "Krishiora",
-        link: "https://www.krishior.in/",
-        github: "https://github.com/mishraashutosh25/krishiora",
-        bgcolor: "#0f2e1c",
-        description: "Agricultural innovation platform",
-        image: isMobile ? photo1 : img1,
-      },
-      {
-        title: "ArogayLink",
-        link: "https://www.ArogayLink-.com/",
-        github: "https://github.com/mishraashutosh25/ArogayLink-",
-        bgcolor: "#357a95ff",
-        description: "Healthcare connectivity solution",
-        image: isMobile ? photo2 : img2,
-      },
-    ],
-    [isMobile]
-  )
+  const projects = useMemo(() => getProjectsData(), [])
 
   /* ---------- SCROLL TRACKING ---------- */
   const { scrollYProgress } = useScroll({
@@ -101,24 +56,22 @@ export default function Projects() {
       <div className="absolute -top-48 -right-48 w-[520px] h-[520px] rounded-full bg-white/10 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-48 -left-48 w-[520px] h-[520px] rounded-full bg-black/20 blur-3xl pointer-events-none" />
       {/* ===== BACKGROUND ENHANCEMENT END ===== */}
-      <div className="sticky top-0 h-screen flex flex-col items-center justify-center gap-6 px-4">
+      <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-4 pt-20 pb-10">
         <h2
-          className={`text-5xl md:text-6xl font-semibold text-center transition-all duration-300 ${isMobile ? "mt-2" : "mt-4"
-            }`}
+          className={`absolute top-6 left-1/2 -translate-x-1/2 text-4xl md:text-5xl font-semibold text-center transition-all duration-300`}
+          style={{ zIndex: 100 }}
         >
           My Work
         </h2>
 
         <div
-          className={`relative w-full flex-1 flex items-center justify-center ${isMobile ? "mt-4" : ""
-            }`}
+          className={`relative w-full h-[70vh] flex items-center justify-center mt-12 md:mt-16`}
         >
           {projects.map((project, idx) => (
             <div
               key={project.title}
-              className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ${activeIndex === idx ? "opacity-100 z-10" : "opacity-0 z-0"
+              className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 w-full max-w-[1200px] ${activeIndex === idx ? "opacity-100 z-10" : "opacity-0 z-0"
                 }`}
-              style={{ width: "100%", maxWidth: "1200px" }}
             >
               <AnimatePresence mode="wait">
                 {activeIndex === idx && (
@@ -131,7 +84,7 @@ export default function Projects() {
                       animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
                       exit={{ opacity: 0, y: 50, scale: 0.9, rotateX: 15 }}
                       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                      className={`block text-center text-[clamp(2.5rem,8vw,7rem)] font-black tracking-[-0.02em] bg-gradient-to-br from-white via-white to-white/50 bg-clip-text text-transparent sm:absolute sm:-top-28 sm:left-[25%] lg:left-[-12%] ${isMobile ? "-mt-16" : ""
+                      className={`block z-20 text-center text-[clamp(2.5rem,8vw,7rem)] font-black tracking-[-0.02em] bg-gradient-to-br from-white via-white to-white/50 bg-clip-text text-transparent sm:absolute sm:-top-24 sm:left-[20%] lg:left-[-12%] lg:-top-20 ${isMobile ? "-mt-12 mb-4" : ""
                         }`}
                       style={{
                         zIndex: 5,

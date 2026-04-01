@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useEffect } from "react";
-import ParticlesBackground from "../compnents/ParticlesBackground";
+import ParticlesBackground from "../components/ParticlesBackground";
 import { motion, scale } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { FaGithub, FaLinkedin, FaXTwitter, FaEnvelope } from "react-icons/fa6";

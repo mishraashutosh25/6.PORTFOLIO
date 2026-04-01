@@ -1,42 +1,6 @@
 import { useEffect, useRef, useState, useMemo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-
-/* ===================== DATA ===================== */
-
-const experience = [
-{
-    role: "Backend Development Intern",
-    company: "CodeAlpha",
-    duration: "Aug 2025 – Oct 2025",
-    description:
-      "Completed a virtual backend internship focused on scalable server-side logic, RESTful APIs, authentication, database operations, and secure backend architecture in a remote team environment.",
-    icon: "🔧"
-  },
-  {
-    role: "Full-Stack Developer Intern",
-    company: "NullClass",
-    duration: "2025",
-    description:
-      "Building end-to-end web solutions with a focus on responsive UI, backend logic, API integration, database management, and real-world deployment.",
-    icon: "💻"},
-    {
-    role: "Full-Stack Developer",
-    company: "Krishiora – Smart Farming Platform",
-    duration: "2025",
-    description:
-      "Developing an AI-powered farming platform enabling soil analysis, weather-based crop planning, smart irrigation, fertilizer recommendations, and an online mandi system.",
-    icon: "🌾"
-  
-    },
-  {
-    role: "Full-Stack Developer",
-    company: "Real-Time Ride Booking App",
-    duration: "2024 – 2025",
-    description:
-      "Built a real-time Uber-style ride booking system with JWT authentication, maps-based tracking, OTP verification, and real-time ride updates.",
-     icon: "🚗"  
-  },
-];
+import { EXPERIENCE_DATA as experience } from "../data/constants";
 
 /* ===================== ITEM ===================== */
 

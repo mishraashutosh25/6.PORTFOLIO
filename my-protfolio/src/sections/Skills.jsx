@@ -1,46 +1,9 @@
-import { FaJava, FaReact } from "react-icons/fa";
-import { 
-  SiNextdotjs, SiTypescript, SiTailwindcss, SiFastapi, SiPython, 
-  SiDocker, SiMongodb, SiSupabase, SiPostgresql, SiJavascript, 
-  SiExpress, SiFlutter, SiFirebase, SiGit, SiGithub, SiHtml5, 
-  SiCss3, SiPostman 
-} from "react-icons/si";
-import { SiCplusplus, SiMysql } from "react-icons/si";
-import { DiAws } from "react-icons/di";
-import { DiNodejsSmall } from "react-icons/di";
 import { motion, useMotionValue } from 'framer-motion';
 import { useEffect, useRef, useState } from "react";
+import { SKILLS_DATA } from "../data/constants";
 
 export default function Skills() {
-
-
-
-
-
-const skills = [
-  { icon: <FaJava />, name: "Java" },
-  { icon: <FaReact />, name: "React.js" },
-  { icon: <SiNextdotjs />, name: "Next.js" },
-  { icon: <SiJavascript />, name: "JavaScript" },
-  { icon: <SiTypescript />, name: "TypeScript" },
-  { icon: <SiTailwindcss />, name: "Tailwind CSS" },
-  { icon: <DiNodejsSmall />, name: "Node.js" },
-  { icon: <SiExpress />, name: "Express.js" },
-  { icon: <SiSupabase />, name: "Supabase" },
-  { icon: <SiMongodb />, name: "MongoDB" },
-  { icon: <SiPostgresql />, name: "PostgreSQL" },
-  { icon: <SiMysql />, name: "SQL" },
-  { icon: <SiPython />, name: "Python" },
-  { icon: <SiCplusplus />, name: "C++" },
-  { icon: <SiFlutter />, name: "Flutter" },
-  { icon: <DiAws />, name: "AWS Cloud" },
-  { icon: <SiDocker />, name: "Docker" },
-  { icon: <SiGit />, name: "Git" },
-  { icon: <SiGithub />, name: "GitHub" },
-  { icon: <SiHtml5 />, name: "HTML" },
-  { icon: <SiCss3 />, name: "CSS" },
-  { icon: <SiPostman />, name: "REST APIs" },
-];
+  const skills = SKILLS_DATA;
 
 
   const repeated = [...skills, ...skills];
@@ -156,7 +119,7 @@ const skills = [
       <div className="relative w-full overflow-hidden">
         <motion.div
           ref={trackRef}
-          className="flex gap-10 text-7xl text-[#1cd8d2]"
+          className="flex gap-16 md:gap-24 text-7xl text-[#1cd8d2] px-8"
           style={{ x, whiteSpace: "nowrap", willChange: "transform" }}
         >
           {repeated.map((s, i) => (
