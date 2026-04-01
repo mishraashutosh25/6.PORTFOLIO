@@ -5,7 +5,7 @@
   <p align="center">
     An industry-grade, interactive personal portfolio website built with modern web technologies.
     <br />
-    <a href="https://your-portfolio-link.vercel.app"><strong>View Live Demo »</strong></a>
+    <a href="https://ashutoshdevprotfolio.netlify.app/"><strong>View Live Demo »</strong></a>
     <br />
     <br />
   </p>
@@ -27,7 +27,7 @@
 
 ---
 
-## 🚀 About The Project
+##  About The Project
 
 <!-- HERO IMAGE PLACEHOLDER -->
 ![Portfolio Hero Section](./docs/hero.png)
