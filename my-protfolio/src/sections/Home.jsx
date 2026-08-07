@@ -102,8 +102,8 @@ export default function Home() {
 
             {/* RESUME BUTTON */}
             <a
-              href="Ashutosh-resume.pdf"
-              download="Ashutosh-resume.pdf"
+              href="Ashutosh-Resume.pdf"
+              download="Ashutosh-Resume.pdf"
               className="cursor-pointer px-8 py-3 rounded-full text-black bg-white font-medium shadow-lg hover:bg-gray-300 hover:scale-105 transition-transform"
             >
               My Resume
