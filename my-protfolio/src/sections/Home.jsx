@@ -4,6 +4,7 @@ import { motion, scale } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { FaGithub, FaLinkedin, FaXTwitter, FaEnvelope } from "react-icons/fa6";
 import yash from "../assets/yash.png";
+import resume from "../assets/Ashutosh_Resume.pdf";
 
 
 const socials = [
@@ -102,7 +103,7 @@ export default function Home() {
 
             {/* RESUME BUTTON */}
             <a
-              href="/Ashutosh_Resume.pdf"
+              href={resume}
               download="Ashutosh_Resume.pdf"
               className="cursor-pointer px-8 py-3 rounded-full text-black bg-white font-medium shadow-lg hover:bg-gray-300 hover:scale-105 transition-transform"
             >
